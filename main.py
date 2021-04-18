@@ -101,3 +101,9 @@ for filename in os.listdir(UNKNOWN_FACES_DIR):
     cv2.imshow(filename, image)
     cv2.waitKey(10000)
     cv2.destroyWindow(filename)
+
+    #Adding a mechanism to measure the size of a dish
+    #class that protions out the food based on the parameters of the dish. 
+    #Send gathered info into processor that calculates calroeis, fat, carbs. 
+    #Create gui for phone app to display the results and back up data
+    
