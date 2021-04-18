@@ -25,10 +25,10 @@ known_names = []
 
 # We oranize known faces as subfolders of KNOWN_FACES_DIR
 # Each subfolder's name becomes our label (name)
-for name in os.listdir(KNOWN_FACES_DIR):
+for name in os.walk(KNOWN_FACES_DIR):
 
     # Next we load every file of faces of known person
-    for filename in os.listdir(f'{KNOWN_FACES_DIR}/{name}'):
+    for filename in os.walk(f'{KNOWN_FACES_DIR}/{name}'):
 
         # Load an image
         image = face_recognition.load_image_file(f'{KNOWN_FACES_DIR}/{name}/{filename}')
@@ -99,5 +99,5 @@ for filename in os.listdir(UNKNOWN_FACES_DIR):
 
     # Show image
     cv2.imshow(filename, image)
-    cv2.waitKey(0)
+    cv2.waitKey(10000)
     cv2.destroyWindow(filename)
