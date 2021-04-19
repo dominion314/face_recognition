@@ -25,10 +25,10 @@ known_names = []
 
 # We oranize known faces as subfolders of KNOWN_FACES_DIR
 # Each subfolder's name becomes our label (name)
-for name in os.listdir(KNOWN_FACES_DIR):
+for name in os.walk(KNOWN_FACES_DIR):
 
     # Next we load every file of faces of known person
-    for filename in os.listdir(f'{KNOWN_FACES_DIR}/{name}'):
+    for filename in os.walk(f'{KNOWN_FACES_DIR}/{name}'):
 
         # Load an image
         image = face_recognition.load_image_file(f'{KNOWN_FACES_DIR}/{name}/{filename}')
@@ -99,5 +99,11 @@ for filename in os.listdir(UNKNOWN_FACES_DIR):
 
     # Show image
     cv2.imshow(filename, image)
-    cv2.waitKey(0)
+    cv2.waitKey(10000)
     cv2.destroyWindow(filename)
+
+    #Adding a mechanism to measure the size of a dish and gather depth perception
+    #Create a class that protions out the food based on the parameters of the dish. 
+    #Send gathered info into dietary processor that calculates caloreis, fat, carbs. 
+    #Create gui for phone app to display the results and back up data.
+
